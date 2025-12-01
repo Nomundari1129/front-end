@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width:60px;
+            height:25px;
+            background-color:green;
+            color:white;
+            border-radius:30px;
+        }
+        input{
+            width:50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>4 тооны багыг ол.</h3>
+        <input class="inputa" type="number">
+        <input class="inputb" type="number">
+        <input class="inputc" type="number">
+        <input class="inputd" type="number"><br><br>
+        <button id="submit" onclick="Submit()">Submit</button>
+        <p id="text">Hariu..</p>
+    </div>
+    <div class="container2">
+        <h3>1-ээс 10 хүртэлх тэгш тоонуудын нйилбэрийг ол.</h3>
+        <button id="submit2" onclick="Submit2()">Submit</button>
+        <p id="text2">Hariu..</p>
+    </div>
+    <div class="container3">
+        <h3>1-ээс 20 хүртэлх тоонуудын зөвхөн сондгой тоонуудыг харуул.</h3>
+        <button id="submit3" onclick="Submit3()">Submit</button>
+        <p id="text3">Hariu..</p>
+    </div>
+    <div class="container4">
+        <h3>Анхны тоо мөн эсэхийг ол.</h3>
+        <input class="inputaaa" type="number"><br><br>
+        <button id="submit4" onclick="Submit4()">Submit</button>
+        <p id="text4">Hariu..</p>
+    </div>
+    <script>
+        function Neg(a,b,c,d){
+            let q=0;
+            let w=0;
+            if(a<b){
+                q=a;
+            }else{
+                q=b;
+            }
+            if(c<d){
+                w=c;
+            }else{
+                w=d;
+            }
+            if(q<w){
+                return q;
+            }else{
+                return w;
+            }
+        }
+        function Submit(){
+            let a = document.querySelector(".inputa").value;
+            let b = document.querySelector(".inputb").value;
+            let c = document.querySelector(".inputc").value;
+            let d = document.querySelector(".inputd").value;
+            if(a===""||b===""||c===""||d===""){
+                alert("Aldaa garlaa");
+                return;
+            }
+            a=Number(a);
+            b =Number(b);
+            c=Number(c);
+            d=Number(d);
+
+            let hariu1=Neg(a,b,c,d);
+            document.getElementById("text").innerText=hariu1;
+            document.querySelector(".inputa").value="";
+            document.querySelector(".inputb").value="";
+            document.querySelector(".inputc").value="";
+            document.querySelector(".inputd").value="";
+        }
+        function Hoyr(){
+            let niilber=0;
+            for (let i = 1 ; i <= 10; i++) {
+                if(i%2==0){
+                niilber=niilber+i;
+                }
+            }
+            return niilber;
+        }
+        function Submit2(){
+            let hariu2=Hoyr();
+            document.getElementById("text2").innerText=hariu2;
+        }
+        function Gurav(){
+            let um="";
+            for(let i=1; i <= 20; i++){
+                if(i%2!=0){
+                    um = um + i + " ";
+                }
+            }
+            return um;
+        }
+        function Submit3(){
+            let hariu3=Gurav();
+            document.getElementById("text3").innerText=hariu3;
+        }
+        function Durev(aaa){
+            yes = "Anhnii too mon.";
+            no = "Anhnii too bish.";
+            for (let i=2; i < aaa; i++) {
+                if(aaa%i==0) {
+                    return no;
+                }
+            }
+            return yes;
+        }
+        function Submit4(){
+            let aaa = document.querySelector(".inputaaa").value;
+            if(aaa===""){
+                alert("Aldaa garlaa");
+                return;
+            }
+            aaa=Number(aaa);
+
+            let hariu4=Durev(aaa);
+            document.getElementById("text4").innerText=hariu4;
+            document.querySelector(".inputaaa").value="";
+        }
+
+</script>
+</body>                                                                     
+</html>
